@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tutorial/windows-xp-background.jpg" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1920, 8.371 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 64, 16 )
+
+[node name="Tutorial" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 960, 540 )
+texture = ExtResource( 2 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 38.7928, 1045.57 )
+collision_mask = 2
+
+[node name="Outside Walls" type="Node" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Outside Walls"]
+position = Vector2( 508.246, 1080 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside Walls/Wall1"]
+shape = SubResource( 1 )
+
+[node name="Wall2" type="StaticBody2D" parent="Outside Walls"]
+position = Vector2( 510.835, 0 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside Walls/Wall2"]
+shape = SubResource( 1 )
+
+[node name="Wall3" type="StaticBody2D" parent="Outside Walls"]
+position = Vector2( 1920, 280.069 )
+rotation = 1.5708
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside Walls/Wall3"]
+shape = SubResource( 1 )
+
+[node name="Wall4" type="StaticBody2D" parent="Outside Walls"]
+position = Vector2( 0, 287.837 )
+rotation = 1.5708
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside Walls/Wall4"]
+shape = SubResource( 1 )
+
+[node name="Maze Walls" type="Node" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Maze Walls"]
+position = Vector2( 74.3564, 919.935 )
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Maze Walls/Wall1"]
+shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 960, 540 )
+current = true
